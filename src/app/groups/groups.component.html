@@ -1,0 +1,32 @@
+
+    <section class="container">
+        <div class="one">
+            <ul class="groups">
+                <li *ngFor="let group of groups" 
+                [class.selected]="group === selectedGroup" 
+                (click)="onSelect(group)">
+                    <span class="badge">{{group.id}}</span>{{group.name}}
+                </li>
+            </ul>
+        </div>
+        <div class="two">
+            <div *ngIf="selectedGroup">
+
+                <h2>{{selectedGroup.name | uppercase}} Information: </h2>>
+                <div><span class="id">ID: </span><span class="info">{{selectedGroup.id}}</span></div>
+                <div><span class="name">Name: </span><span class="info">{{selectedGroup.name}}</span></div>
+                <div><span class="num">Number of Members: </span><span class="info">{{selectedGroup.numMembers}}</span></div>
+                <div><span class="members">Member List: </span></div>
+                <div>
+                    <ul class="membersList">
+                            <li *ngFor="let member of selectedGroup.members" >
+                                <span class="personId">{{member.fName}}</span>{{member.lName}}
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
